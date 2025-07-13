@@ -38,10 +38,6 @@ app.use(async (req, res, next) => {
   next();
 });
 
-// ==========================
-// Mongoose Models
-// ==========================
-
 const Party = mongoose.model(
   "Party",
   new mongoose.Schema({
@@ -65,9 +61,6 @@ const Voter = mongoose.model(
   })
 );
 
-// ==========================
-// Ensure invalid vote party
-// ==========================
 
 async function ensureInvalidParty() {
   const invalid = await Party.findOne({ partyId: 999 });
@@ -85,10 +78,6 @@ async function ensureInvalidParty() {
 }
 
 let invalidPartyEnsured = false;
-
-// ==========================
-// Routes
-// ==========================
 
 // Check voter and get parties
 app.post("/api/check-voter", async (req, res) => {
