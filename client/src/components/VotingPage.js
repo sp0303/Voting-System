@@ -79,8 +79,6 @@ export default function VotingPage() {
           Live Voters Voted: {liveVoterCount}
         </span>
       </div>
-
-      {/* STEP 1: ASK VOTER ID & NAME */}
       {status === 'idle' && !voted && (
         <div className="text-center">
           <h2 className="mb-4">Digital Ballot Box</h2>
@@ -104,7 +102,6 @@ export default function VotingPage() {
         </div>
       )}
 
-      {/* STEP 2: VOTER NOT FOUND or DUPLICATE */}
       {['invalid', 'duplicate'].includes(status) && !voted && (
         <div className="text-center">
           <div className={`alert alert-${status === 'invalid' ? 'danger' : 'warning'}`}>
@@ -133,7 +130,6 @@ export default function VotingPage() {
         </div>
       )}
 
-      {/* STEP 3: VALID VOTER CAN VOTE */}
       {status === 'valid' && !voted && (
         <div className="text-center">
           <h3 className="mb-4">Please choose your party</h3>
@@ -152,7 +148,6 @@ export default function VotingPage() {
         </div>
       )}
 
-      {/* STEP 4: VOTING DONE */}
       {voted && (
         <div className="text-center">
           <div className="alert alert-success">
